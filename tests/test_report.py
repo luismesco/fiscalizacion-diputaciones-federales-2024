@@ -43,7 +43,9 @@ class ReportDataTests(unittest.TestCase):
     def test_pdf_is_letter_landscape_with_selectable_text(self) -> None:
         document = fitz.open(PDF_PATH)
         self.assertEqual(document.page_count, 9)
-        self.assertEqual(document[0].rect, fitz.Rect(0, 0, 792, 612))
+        self.assertTrue(
+            all(page.rect == fitz.Rect(0, 0, 792, 612) for page in document)
+        )
         report_text = "".join(page.get_text() for page in document)
         self.assertIn("Morena", report_text)
         self.assertIn("SUP-RAP-104/2025", report_text)
