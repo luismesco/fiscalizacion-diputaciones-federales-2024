@@ -374,8 +374,164 @@
       .download-pdf { display: none !important; }
       .page { margin: 0; box-shadow: none; }
     }
-    @media screen and (max-width: 1060px) {
-      .page { transform-origin: top left; }
+    @media screen and (max-width: 1100px) {
+      html { background: var(--paper); }
+      body {
+        min-width: 0;
+        overflow-x: clip;
+      }
+      .download-pdf {
+        top: max(12px, env(safe-area-inset-top));
+        right: max(12px, env(safe-area-inset-right));
+        max-width: calc(100vw - 24px);
+        padding: 11px 15px;
+        font-size: 10px;
+      }
+      .page {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        margin: 0 0 16px;
+        padding: 70px clamp(18px, 5vw, 44px) 28px;
+        overflow: visible;
+        box-shadow: none;
+        transform: none;
+      }
+      .page:not(.cover) {
+        border-bottom: 8px solid #e9e1d4;
+      }
+      .cover { padding: 0; }
+      .cover-grid {
+        display: block;
+        height: auto;
+      }
+      .cover-main {
+        min-height: min(760px, 100svh);
+        padding: 82px clamp(22px, 6vw, 52px) 48px;
+        gap: 72px;
+      }
+      .cover-main::after {
+        right: 34px;
+        bottom: 38px;
+        width: 62px;
+        height: 62px;
+        box-shadow: 0 0 0 12px var(--ivory), 0 0 0 14px rgba(197,154,61,.45);
+      }
+      .cover-side {
+        min-height: 420px;
+        padding: 38px clamp(22px, 6vw, 52px);
+        gap: 34px;
+      }
+      h1 {
+        max-width: none;
+        font-size: clamp(38px, 11vw, 66px);
+        line-height: .98;
+        overflow-wrap: break-word;
+      }
+      .cover-deck {
+        max-width: none;
+        font-size: clamp(17px, 4.5vw, 22px);
+      }
+      .cover-meta {
+        width: 100%;
+        max-width: calc(100% - 88px);
+        font-size: 12px;
+      }
+      .section-head {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+      }
+      .section-head h2 {
+        font-size: clamp(27px, 8vw, 42px);
+        overflow-wrap: break-word;
+      }
+      .lead {
+        font-size: clamp(16px, 4.4vw, 19px);
+      }
+      .grid-2,
+      .grid-3,
+      .coalition-block,
+      .answer-strip {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      .grid-2,
+      .grid-3 {
+        gap: 14px;
+      }
+      .card h3,
+      .process-step h3 {
+        font-size: 14px;
+      }
+      .card p,
+      .card li,
+      .case-card p,
+      .process-step p,
+      .coalition p,
+      .answer-small p {
+        font-size: 13px;
+      }
+      .definition {
+        grid-template-columns: 38px minmax(0, 1fr);
+      }
+      .definition h3 { font-size: 13px; }
+      .definition p,
+      .note,
+      .fine {
+        font-size: 13px;
+      }
+      .bar-row {
+        grid-template-columns: minmax(96px, 35%) minmax(0, 1fr) 34px;
+        gap: 7px;
+        min-height: 40px;
+      }
+      .bar-label { font-size: 12px; }
+      .bar-value { font-size: 13px; }
+      table {
+        table-layout: fixed;
+      }
+      th,
+      td {
+        padding: 7px 4px;
+        overflow-wrap: anywhere;
+      }
+      th { font-size: 9px; }
+      td { font-size: 11px; }
+      .source-table th:nth-child(1),
+      .source-table td:nth-child(1) { width: 12%; }
+      .source-table th:nth-child(2),
+      .source-table td:nth-child(2) { width: 20%; }
+      .source-table th:nth-child(3),
+      .source-table td:nth-child(3) { width: 16%; }
+      .source-table th:nth-child(4),
+      .source-table td:nth-child(4) { width: 31%; }
+      .source-table th:nth-child(5),
+      .source-table td:nth-child(5) { width: 21%; }
+      .source-table td { font-size: 10px; }
+      .process {
+        grid-template-columns: minmax(0, 1fr) !important;
+      }
+      .arrow {
+        min-height: 34px;
+        transform: rotate(90deg);
+      }
+      .money {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .money-box strong { font-size: 32px; }
+      .coalition,
+      .answer-small {
+        min-height: 0;
+      }
+      .hero-answer strong {
+        font-size: clamp(38px, 12vw, 54px) !important;
+        overflow-wrap: anywhere;
+      }
+      .footer {
+        position: static;
+        gap: 16px;
+        margin-top: 28px;
+        font-size: 10px;
+      }
     }
   </style>
 </head>
