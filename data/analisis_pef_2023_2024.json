@@ -1,0 +1,131 @@
+{
+  "titulo": "Observaciones de fiscalización del PEF 2023–2024",
+  "fecha_corte": "2026-07-26",
+  "universo": "Precampaña y campaña federales para Presidencia, senadurías y diputaciones",
+  "unidad_principal": "Conclusión sancionatoria directa por partido",
+  "partidos": {
+    "Morena": {
+      "precampana": 26,
+      "campana": 168,
+      "total": 194
+    },
+    "Movimiento Ciudadano": {
+      "precampana": 21,
+      "campana": 100,
+      "total": 121
+    },
+    "PAN": {
+      "precampana": 25,
+      "campana": 91,
+      "total": 116
+    },
+    "PT": {
+      "precampana": 7,
+      "campana": 99,
+      "total": 106
+    },
+    "PRD": {
+      "precampana": 14,
+      "campana": 83,
+      "total": 97
+    },
+    "PRI": {
+      "precampana": 26,
+      "campana": 65,
+      "total": 91
+    },
+    "PVEM": {
+      "precampana": 16,
+      "campana": 65,
+      "total": 81
+    }
+  },
+  "coaliciones": {
+    "Fuerza y Corazón por México": {
+      "campana": 377
+    },
+    "Sigamos Haciendo Historia": {
+      "campana": 259
+    }
+  },
+  "respuestas": {
+    "a": {
+      "partido": "Morena",
+      "total": 194,
+      "criterio": "Mayor número de conclusiones sancionatorias directas en precampaña y campaña federal"
+    },
+    "b": {
+      "partido": "Morena",
+      "expedientes": [
+        "SUP-RAP-88/2024",
+        "SUP-RAP-413/2024"
+      ]
+    },
+    "c": {
+      "partido": "Morena",
+      "conclusion": "7_C75_FD",
+      "resolucion_cumplimiento": "INE/CG319/2025",
+      "expediente_confirmatorio": "SUP-RAP-104/2025",
+      "monto_involucrado": 1020800.0,
+      "sancion_confirmada": 306167.4
+    }
+  },
+  "fuentes": [
+    {
+      "autoridad": "INE",
+      "clave": "INE/CG212/2024",
+      "etapa": "Precampaña",
+      "tipo": "Dictamen consolidado",
+      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/166305"
+    },
+    {
+      "autoridad": "INE",
+      "clave": "INE/CG213/2024",
+      "etapa": "Precampaña",
+      "tipo": "Resolución",
+      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/166317"
+    },
+    {
+      "autoridad": "INE",
+      "clave": "INE/CG1928/2024",
+      "etapa": "Campaña",
+      "tipo": "Dictamen consolidado",
+      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/175380"
+    },
+    {
+      "autoridad": "INE",
+      "clave": "INE/CG1929/2024",
+      "etapa": "Campaña",
+      "tipo": "Resolución",
+      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/175375"
+    },
+    {
+      "autoridad": "TEPJF",
+      "clave": "SUP-RAP-88/2024",
+      "etapa": "Precampaña",
+      "tipo": "Sentencia",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0088-2024-"
+    },
+    {
+      "autoridad": "TEPJF",
+      "clave": "SUP-RAP-413/2024",
+      "etapa": "Campaña",
+      "tipo": "Sentencia",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0413-2024-"
+    },
+    {
+      "autoridad": "INE",
+      "clave": "INE/CG319/2025",
+      "etapa": "Cumplimiento",
+      "tipo": "Resolución",
+      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/181732"
+    },
+    {
+      "autoridad": "TEPJF",
+      "clave": "SUP-RAP-104/2025",
+      "etapa": "Cumplimiento",
+      "tipo": "Sentencia",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0104-2025-"
+    }
+  ]
+}
