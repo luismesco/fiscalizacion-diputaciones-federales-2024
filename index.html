@@ -3,83 +3,651 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Qué se sancionó en diputaciones federales 2024</title>
+  <meta name="description" content="Análisis documental de las observaciones de fiscalización del Proceso Electoral Federal 2023–2024 con fuentes oficiales del INE y del TEPJF.">
+  <title>Observaciones de fiscalización del PEF 2023–2024</title>
   <style>
     @page { size: letter landscape; margin: 0; }
+    :root {
+      --wine: #6b1531;
+      --wine-dark: #3f0a1b;
+      --gold: #c59a3d;
+      --green: #1e5b4f;
+      --ink: #17110f;
+      --muted: #6e625d;
+      --ivory: #f4efe5;
+      --paper: #fffdf8;
+      --line: #d8cdbb;
+      --soft-wine: #ead9df;
+      --soft-green: #dce8e3;
+    }
     * { box-sizing: border-box; }
-    html { background: #d8d3cc; }
+    html { background: #d8d3cc; scroll-behavior: smooth; }
     body {
       margin: 0;
-      color: #211816;
-      font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      font-family: Montserrat, Avenir, "Helvetica Neue", Arial, sans-serif;
+      font-variant-numeric: tabular-nums;
     }
-    .report-page {
-      width: 11in;
-      height: 8.5in;
-      margin: 24px auto;
-      overflow: hidden;
-      background: #fff;
-      box-shadow: 0 8px 28px rgba(33, 24, 22, .18);
-      break-after: page;
-      page-break-after: always;
-    }
-    .report-page:last-of-type {
-      break-after: auto;
-      page-break-after: auto;
-    }
-    .report-page img {
-      display: block;
-      width: 11in;
-      height: 8.5in;
-      object-fit: contain;
-    }
+    a { color: inherit; }
     .download-pdf {
       position: fixed;
       z-index: 1000;
       top: 18px;
       right: 18px;
-      display: inline-flex;
-      align-items: center;
       padding: 12px 17px;
-      border: 1px solid rgba(255, 255, 255, .3);
       border-radius: 999px;
-      background: #6B1531;
+      background: var(--wine);
       color: #fff;
       box-shadow: 0 8px 24px rgba(33, 24, 22, .25);
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 900;
-      letter-spacing: .02em;
+      letter-spacing: .04em;
       text-decoration: none;
       text-transform: uppercase;
     }
-    .download-pdf:hover { background: #3b0718; }
+    .download-pdf:hover { background: var(--wine-dark); }
+    .page {
+      position: relative;
+      width: 11in;
+      height: 8.5in;
+      margin: 24px auto;
+      padding: .42in .48in .36in;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 8px 28px rgba(33, 24, 22, .18);
+      break-after: page;
+      page-break-after: always;
+    }
+    .page:last-of-type { break-after: auto; page-break-after: auto; }
+    .page::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--wine) 0 63%, var(--gold) 63% 79%, var(--green) 79%);
+    }
+    .cover {
+      padding: 0;
+      background: var(--ivory);
+    }
+    .cover::before { height: 14px; }
+    .cover-grid { display: grid; grid-template-columns: 62% 38%; height: 100%; }
+    .cover-main {
+      position: relative;
+      padding: .74in .55in .55in;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .cover-main::after {
+      content: "";
+      position: absolute;
+      right: .5in;
+      bottom: .6in;
+      width: 1.45in;
+      height: 1.45in;
+      border: 1px solid rgba(107,21,49,.18);
+      border-radius: 50%;
+      box-shadow: 0 0 0 .18in var(--ivory), 0 0 0 .2in rgba(197,154,61,.45);
+    }
+    .cover-side {
+      padding: .75in .48in .5in;
+      background: var(--wine);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--wine);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .cover .eyebrow { color: var(--gold); }
+    h1 {
+      max-width: 6in;
+      margin: 0;
+      color: var(--wine);
+      font-family: Avenir, Montserrat, "Helvetica Neue", Arial, sans-serif;
+      font-size: 43px;
+      font-weight: 900;
+      letter-spacing: -.045em;
+      line-height: .98;
+    }
+    .cover-deck {
+      max-width: 5.25in;
+      margin: 18px 0 0;
+      color: #3d322e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      line-height: 1.38;
+    }
+    .cover-meta {
+      width: 4.7in;
+      padding-top: 14px;
+      border-top: 1px solid var(--gold);
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.55;
+    }
+    .cover-side h2 {
+      margin: 0;
+      color: #fff;
+      font-size: 15px;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+    .cover-stat {
+      padding: 13px 0;
+      border-top: 1px solid rgba(255,255,255,.28);
+    }
+    .cover-stat strong {
+      display: block;
+      color: var(--gold);
+      font-size: 35px;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+    .cover-stat span { font-size: 10px; font-weight: 700; line-height: 1.35; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 20px;
+      margin-bottom: 17px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--line);
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--wine);
+      font-size: 27px;
+      font-weight: 900;
+      letter-spacing: -.035em;
+      line-height: 1.02;
+    }
+    .folio {
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+    .lead {
+      margin: 0;
+      color: #3d322e;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.38;
+    }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .card {
+      padding: 15px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.62);
+    }
+    .card h3 {
+      margin: 0 0 7px;
+      color: var(--wine);
+      font-size: 12px;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+    .card p, .card li {
+      margin: 0;
+      color: #4b403b;
+      font-size: 10.5px;
+      line-height: 1.43;
+    }
+    .card p + p { margin-top: 7px; }
+    .card ul { margin: 7px 0 0; padding-left: 17px; }
+    .number {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .definition {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .definition:last-child { border-bottom: 0; }
+    .definition b {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--wine);
+      color: #fff;
+      font-size: 12px;
+    }
+    .definition h3 { margin: 1px 0 4px; color: var(--wine); font-size: 11px; text-transform: uppercase; }
+    .definition p { margin: 0; color: var(--muted); font-size: 9.5px; line-height: 1.4; }
+    .note {
+      padding: 10px 13px;
+      border-left: 4px solid var(--gold);
+      background: #f2ead9;
+      color: #54463e;
+      font-size: 9.5px;
+      line-height: 1.4;
+    }
+    .bar-chart { margin-top: 5px; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 1.55in 1fr .42in;
+      align-items: center;
+      gap: 9px;
+      min-height: 32px;
+      border-bottom: 1px solid #ebe4d8;
+    }
+    .bar-label { font-size: 10px; font-weight: 800; }
+    .bar-track { height: 13px; background: #ece3d4; }
+    .bar { height: 100%; background: var(--green); }
+    .bar.morena { background: var(--wine); }
+    .bar-value { color: var(--wine); font-size: 12px; font-weight: 900; text-align: right; }
+    table { width: 100%; border-collapse: collapse; }
+    th {
+      padding: 7px 6px;
+      border-bottom: 2px solid var(--wine);
+      color: var(--wine);
+      font-size: 8.5px;
+      letter-spacing: .05em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+    td {
+      padding: 7px 6px;
+      border-bottom: 1px solid var(--line);
+      color: #3f3530;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+    td.num, th.num { text-align: right; }
+    tr.highlight td { background: var(--soft-wine); color: var(--wine-dark); font-weight: 900; }
+    .hero-answer {
+      padding: 17px 18px;
+      background: var(--wine);
+      color: #fff;
+    }
+    .hero-answer .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      background: var(--gold);
+      color: var(--wine-dark);
+      font-size: 8px;
+      font-weight: 900;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .hero-answer strong {
+      display: block;
+      font-size: 51px;
+      letter-spacing: -.06em;
+      line-height: .9;
+    }
+    .hero-answer h3 { margin: 7px 0 8px; color: #fff; font-size: 20px; }
+    .hero-answer p { margin: 0; color: #f2e7ea; font-size: 10px; line-height: 1.45; }
+    .split-stat { display: grid; grid-template-columns: 1fr 1fr; margin-top: 12px; }
+    .split-stat div { padding: 10px; border: 1px solid rgba(255,255,255,.28); }
+    .split-stat b { display: block; color: var(--gold); font-size: 23px; }
+    .split-stat span { font-size: 8px; text-transform: uppercase; }
+    .process { display: grid; grid-template-columns: 1fr 34px 1fr 34px 1fr; align-items: stretch; margin-top: 13px; }
+    .process-step {
+      padding: 13px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .process-step em { color: var(--gold); font-size: 9px; font-style: normal; font-weight: 900; text-transform: uppercase; }
+    .process-step h3 { margin: 5px 0; color: var(--wine); font-size: 12px; }
+    .process-step p { margin: 0; color: var(--muted); font-size: 9px; line-height: 1.35; }
+    .arrow { display: grid; place-items: center; color: var(--gold); font-size: 23px; font-weight: 300; }
+    .case-card {
+      padding: 13px;
+      border-top: 5px solid var(--wine);
+      background: var(--soft-wine);
+    }
+    .case-card.green { border-top-color: var(--green); background: var(--soft-green); }
+    .case-card h3 { margin: 0 0 6px; color: var(--wine); font-size: 15px; }
+    .case-card p { margin: 0 0 6px; color: #493c37; font-size: 9.5px; line-height: 1.4; }
+    .case-card a { font-size: 9px; font-weight: 900; }
+    .money {
+      display: grid;
+      grid-template-columns: 1fr 42px 1fr;
+      align-items: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .money-box { padding: 14px; border: 1px solid var(--line); text-align: center; }
+    .money-box strong { display: block; color: var(--wine); font-size: 25px; letter-spacing: -.04em; }
+    .money-box span { color: var(--muted); font-size: 8px; text-transform: uppercase; }
+    .versus { color: var(--gold); font-size: 10px; font-weight: 900; text-align: center; text-transform: uppercase; }
+    .coalition-block { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 15px 0; }
+    .coalition {
+      position: relative;
+      min-height: 1.45in;
+      padding: 16px;
+      overflow: hidden;
+      background: var(--green);
+      color: #fff;
+    }
+    .coalition.wine { background: var(--wine); }
+    .coalition strong { display: block; color: var(--gold); font-size: 36px; line-height: 1; }
+    .coalition h3 { margin: 6px 0; font-size: 13px; }
+    .coalition p { margin: 0; font-size: 9px; line-height: 1.35; }
+    .source-table td { padding-top: 6px; padding-bottom: 6px; font-size: 8.5px; }
+    .source-table a { color: var(--wine); font-weight: 900; text-decoration: none; }
+    .answer-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 13px 0; }
+    .answer-small { min-height: 1.55in; padding: 14px; background: var(--wine); color: #fff; }
+    .answer-small:nth-child(2) { background: var(--green); }
+    .answer-small:nth-child(3) { background: var(--wine-dark); }
+    .answer-small b { display: block; color: var(--gold); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .answer-small strong { display: block; margin: 7px 0; font-size: 22px; line-height: 1; }
+    .answer-small p { margin: 0; font-size: 8.7px; line-height: 1.4; }
+    .footer {
+      position: absolute;
+      left: .48in;
+      right: .48in;
+      bottom: .16in;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 5px;
+      border-top: 1px solid var(--line);
+      color: #766a64;
+      font-size: 7.5px;
+      letter-spacing: .04em;
+    }
+    .fine { color: var(--muted); font-size: 8.5px; line-height: 1.42; }
     @media print {
       html, body { background: #fff; }
       .download-pdf { display: none !important; }
-      .report-page {
-        margin: 0;
-        box-shadow: none;
-      }
+      .page { margin: 0; box-shadow: none; }
+    }
+    @media screen and (max-width: 1060px) {
+      .page { transform-origin: top left; }
     }
   </style>
 </head>
 <body>
-  <a
-    class="download-pdf"
-    href="reporte_desde_html.pdf"
-    download
-  >Descargar PDF</a>
+  <a class="download-pdf" href="reporte_observaciones_pef_2023_2024.pdf" download>Descargar PDF</a>
 
-  <main aria-label="Reporte de fiscalización de diputaciones federales 2024">
-    <section class="report-page"><img src="assets/pagina-01.png" alt="Página 1 de 9: portada"></section>
-    <section class="report-page"><img src="assets/pagina-02.png" alt="Página 2 de 9: índice"></section>
-    <section class="report-page"><img src="assets/pagina-03.png" alt="Página 3 de 9: qué se sancionó"></section>
-    <section class="report-page"><img src="assets/pagina-04.png" alt="Página 4 de 9: mapa de incidencias"></section>
-    <section class="report-page"><img src="assets/pagina-05.png" alt="Página 5 de 9: expedientes consultables"></section>
-    <section class="report-page"><img src="assets/pagina-06.png" alt="Página 6 de 9: expedientes consultables"></section>
-    <section class="report-page"><img src="assets/pagina-07.png" alt="Página 7 de 9: expedientes consultables"></section>
-    <section class="report-page"><img src="assets/pagina-08.png" alt="Página 8 de 9: modelo de trabajo"></section>
-    <section class="report-page"><img src="assets/pagina-09.png" alt="Página 9 de 9: fuentes y método"></section>
+  <main aria-label="Análisis de observaciones de fiscalización del Proceso Electoral Federal 2023–2024">
+    <section class="page cover" aria-label="Portada">
+      <div class="cover-grid">
+        <div class="cover-main">
+          <div>
+            <p class="eyebrow">Fiscalización electoral · análisis documental</p>
+            <h1>Observaciones de fiscalización del PEF 2023–2024</h1>
+            <p class="cover-deck">Qué partido acumuló más conclusiones sancionatorias, cuáles trascendieron a expedientes jurisdiccionales y qué cadena concluyó con una sanción confirmada.</p>
+          </div>
+          <div class="cover-meta">
+            <b>Universo:</b> precampaña y campaña federales para Presidencia, senadurías y diputaciones.<br>
+            <b>Fuentes primarias:</b> Consejo General del INE y Sala Superior del TEPJF.<br>
+            Corte documental: 26 de julio de 2026.
+          </div>
+        </div>
+        <aside class="cover-side">
+          <h2>Tres preguntas.<br>Trazabilidad completa.</h2>
+          <div>
+            <div class="cover-stat"><strong>194</strong><span>conclusiones directas de Morena: el mayor total entre partidos</span></div>
+            <div class="cover-stat"><strong>2</strong><span>etapas fiscalizadas: precampaña y campaña federal</span></div>
+            <div class="cover-stat"><strong>8</strong><span>instrumentos oficiales clave del INE y del TEPJF</span></div>
+          </div>
+          <p style="margin:0;font-size:8px;line-height:1.45;color:#e7d9dd">Documento analítico independiente. El diseño toma como referencia la identidad editorial proporcionada; el contenido y la investigación son nuevos.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="page methodology" aria-label="Alcance y método">
+      <header class="section-head">
+        <div><p class="eyebrow">Cómo leer el resultado</p><h2>Alcance, unidad de análisis y ruta documental</h2></div>
+        <span class="folio">02 / 09</span>
+      </header>
+      <div class="grid-2">
+        <div>
+          <p class="lead">“Observación” puede nombrar momentos distintos del procedimiento. Para comparar partidos de forma verificable se cuentan las <b>conclusiones sancionatorias directas</b> asentadas en los dictámenes consolidados.</p>
+          <div style="margin-top:14px">
+            <div class="definition"><b>1</b><div><h3>Oficio de errores y omisiones</h3><p>La UTF comunica hallazgos preliminares al sujeto obligado para que responda, aclare o presente documentación.</p></div></div>
+            <div class="definition"><b>2</b><div><h3>Conclusión del dictamen</h3><p>Tras valorar la respuesta, el INE determina si el punto quedó atendido o subsiste como conclusión sancionatoria.</p></div></div>
+            <div class="definition"><b>3</b><div><h3>Resolución y expediente</h3><p>El Consejo General impone, en su caso, la sanción; el TEPJF revisa únicamente lo que fue impugnado.</p></div></div>
+          </div>
+        </div>
+        <div>
+          <div class="grid-2" style="gap:10px">
+            <div class="card"><span class="number">7</span><h3>Partidos nacionales</h3><p>PAN, PRI, PRD, PT, PVEM, Movimiento Ciudadano y Morena.</p></div>
+            <div class="card"><span class="number">806</span><h3>Conclusiones directas</h3><p>Suma de las conclusiones atribuidas individualmente a esos siete partidos.</p></div>
+            <div class="card"><span class="number">3</span><h3>Cargos federales</h3><p>Presidencia, senadurías y diputaciones; sin procesos electorales locales.</p></div>
+            <div class="card"><span class="number">2</span><h3>Fases</h3><p>Precampaña y campaña del Proceso Electoral Federal 2023–2024.</p></div>
+          </div>
+          <div class="note" style="margin-top:12px"><b>Regla de atribución.</b> Las conclusiones registradas a una coalición se mantienen como categoría propia. No se duplican en cada partido integrante, porque eso inflaría artificialmente el conteo partidista.</div>
+          <div class="card" style="margin-top:12px">
+            <h3>Cadena de evidencia</h3>
+            <p>Dictamen consolidado del INE → resolución del Consejo General → recurso de apelación ante Sala Superior → resolución en cumplimiento → sentencia confirmatoria.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer"><span>Observaciones de fiscalización · PEF 2023–2024</span><span>Fuentes: INE y TEPJF</span></div>
+    </section>
+
+    <section class="page ranking" aria-label="Ranking de partidos">
+      <header class="section-head">
+        <div><p class="eyebrow">Comparación nacional</p><h2>Ranking de conclusiones sancionatorias directas</h2></div>
+        <span class="folio">03 / 09</span>
+      </header>
+      <div class="grid-2" style="grid-template-columns:1.14fr .86fr">
+        <div>
+          <div class="bar-chart" aria-label="Gráfica de conclusiones por partido">
+            <div class="bar-row"><span class="bar-label">Morena</span><div class="bar-track"><div class="bar morena" style="width:100%"></div></div><span class="bar-value">194</span></div>
+            <div class="bar-row"><span class="bar-label">Movimiento Ciudadano</span><div class="bar-track"><div class="bar" style="width:62.4%"></div></div><span class="bar-value">121</span></div>
+            <div class="bar-row"><span class="bar-label">PAN</span><div class="bar-track"><div class="bar" style="width:59.8%"></div></div><span class="bar-value">116</span></div>
+            <div class="bar-row"><span class="bar-label">PT</span><div class="bar-track"><div class="bar" style="width:54.6%"></div></div><span class="bar-value">106</span></div>
+            <div class="bar-row"><span class="bar-label">PRD</span><div class="bar-track"><div class="bar" style="width:50%"></div></div><span class="bar-value">97</span></div>
+            <div class="bar-row"><span class="bar-label">PRI</span><div class="bar-track"><div class="bar" style="width:46.9%"></div></div><span class="bar-value">91</span></div>
+            <div class="bar-row"><span class="bar-label">PVEM</span><div class="bar-track"><div class="bar" style="width:41.8%"></div></div><span class="bar-value">81</span></div>
+          </div>
+          <p class="fine" style="margin:10px 0 0">Escala relativa al máximo. El total combina precampaña y campaña; las coaliciones se presentan por separado en la página 7.</p>
+        </div>
+        <div>
+          <table aria-label="Desglose por etapa">
+            <thead><tr><th>Partido</th><th class="num">Pre</th><th class="num">Campaña</th><th class="num">Total</th></tr></thead>
+            <tbody>
+              <tr class="highlight"><td>Morena</td><td class="num">26</td><td class="num">168</td><td class="num">194</td></tr>
+              <tr><td>MC</td><td class="num">21</td><td class="num">100</td><td class="num">121</td></tr>
+              <tr><td>PAN</td><td class="num">25</td><td class="num">91</td><td class="num">116</td></tr>
+              <tr><td>PT</td><td class="num">7</td><td class="num">99</td><td class="num">106</td></tr>
+              <tr><td>PRD</td><td class="num">14</td><td class="num">83</td><td class="num">97</td></tr>
+              <tr><td>PRI</td><td class="num">26</td><td class="num">65</td><td class="num">91</td></tr>
+              <tr><td>PVEM</td><td class="num">16</td><td class="num">65</td><td class="num">81</td></tr>
+            </tbody>
+          </table>
+          <div class="note" style="margin-top:12px"><b>Lectura.</b> Morena supera por 73 conclusiones a Movimiento Ciudadano, segundo lugar. Su total representa 24.1% de las 806 conclusiones directas contadas.</div>
+        </div>
+      </div>
+      <div class="footer"><span>Base: dictámenes consolidados INE/CG212/2024 e INE/CG1928/2024</span><span>Conteo propio sobre anexos oficiales</span></div>
+    </section>
+
+    <section class="page answer-a" aria-label="Respuesta A">
+      <header class="section-head">
+        <div><p class="eyebrow">Respuesta A</p><h2>¿Cuál fue el partido más observado?</h2></div>
+        <span class="folio">04 / 09</span>
+      </header>
+      <div class="grid-2" style="grid-template-columns:.78fr 1.22fr">
+        <div class="hero-answer">
+          <span class="tag">Resultado</span>
+          <strong>194</strong>
+          <h3>Morena</h3>
+          <p>Mayor número de conclusiones sancionatorias directas en la fiscalización federal de precampaña y campaña.</p>
+          <div class="split-stat">
+            <div><b>26</b><span>Precampaña</span></div>
+            <div><b>168</b><span>Campaña</span></div>
+          </div>
+        </div>
+        <div>
+          <p class="lead">El resultado se sostiene al sumar las conclusiones individualizadas a cada partido en las dos etapas. No equivale al número bruto de señalamientos iniciales enviados en oficios.</p>
+          <div class="grid-2" style="gap:10px;margin-top:14px">
+            <div class="card"><h3>24.1% del total</h3><p>194 de 806 conclusiones directas corresponden a Morena.</p></div>
+            <div class="card"><h3>+73 frente al segundo</h3><p>Movimiento Ciudadano ocupa el segundo lugar con 121.</p></div>
+            <div class="card"><h3>Fuente de precampaña</h3><p><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/166305">INE/CG212/2024</a>, dictamen consolidado.</p></div>
+            <div class="card"><h3>Fuente de campaña</h3><p><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/175380">INE/CG1928/2024</a>, dictamen consolidado.</p></div>
+          </div>
+          <div class="note" style="margin-top:12px"><b>Precisión terminológica.</b> “Más observado” se operacionaliza aquí como “más conclusiones sancionatorias directas”. Es la unidad comparable que permanece después de la garantía de audiencia y que conecta con la resolución del INE.</div>
+        </div>
+      </div>
+      <div class="footer"><span>A · Partido con mayor número de conclusiones directas: Morena</span><span>194 conclusiones</span></div>
+    </section>
+
+    <section class="page answer-b" aria-label="Respuesta B">
+      <header class="section-head">
+        <div><p class="eyebrow">Respuesta B</p><h2>El partido más observado que llegó al TEPJF</h2></div>
+        <span class="folio">05 / 09</span>
+      </header>
+      <p class="lead">Morena, además de encabezar el conteo, impugnó determinaciones de las dos etapas federales. La Sala Superior abrió y resolvió expedientes específicos.</p>
+      <div class="grid-2" style="margin-top:15px">
+        <article class="case-card">
+          <h3>SUP-RAP-88/2024</h3>
+          <p><b>Etapa:</b> precampaña. Revisión de la resolución INE/CG213/2024 y su dictamen INE/CG212/2024.</p>
+          <p><b>Resultado procesal:</b> revocación parcial para efectos respecto de conclusiones controvertidas; subsistió lo no impugnado o no alcanzado por la sentencia.</p>
+          <a href="https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0088-2024-">Consultar sentencia oficial →</a>
+        </article>
+        <article class="case-card green">
+          <h3>SUP-RAP-413/2024</h3>
+          <p><b>Etapa:</b> campaña. Revisión de la resolución INE/CG1929/2024 y su dictamen INE/CG1928/2024.</p>
+          <p><b>Resultado procesal:</b> revocación parcial para efectos, que dio lugar a una nueva determinación del Consejo General.</p>
+          <a href="https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0413-2024-">Consultar sentencia oficial →</a>
+        </article>
+      </div>
+      <div class="process" aria-label="Ruta del expediente">
+        <div class="process-step"><em>1 · Fiscalización</em><h3>INE documenta</h3><p>Dictamen y resolución identifican las conclusiones por sujeto obligado.</p></div>
+        <div class="arrow">→</div>
+        <div class="process-step"><em>2 · Impugnación</em><h3>Morena apela</h3><p>El partido formula agravios sobre conclusiones determinadas por el Consejo General.</p></div>
+        <div class="arrow">→</div>
+        <div class="process-step"><em>3 · Jurisdicción</em><h3>TEPJF resuelve</h3><p>Sala Superior confirma, modifica o revoca exclusivamente la materia impugnada.</p></div>
+      </div>
+      <div class="note" style="margin-top:13px"><b>Respuesta B: Morena.</b> La existencia de un expediente no significa que las 194 conclusiones hayan sido controvertidas ni que todas fueran sancionadas definitivamente; acredita que determinaciones concretas trascendieron a revisión jurisdiccional.</div>
+      <div class="footer"><span>B · Morena: SUP-RAP-88/2024 y SUP-RAP-413/2024</span><span>Sala Superior del TEPJF</span></div>
+    </section>
+
+    <section class="page answer-c" aria-label="Respuesta C">
+      <header class="section-head">
+        <div><p class="eyebrow">Respuesta C</p><h2>Expediente resuelto y sanción confirmada</h2></div>
+        <span class="folio">06 / 09</span>
+      </header>
+      <div class="grid-2" style="grid-template-columns:1.18fr .82fr">
+        <div>
+          <p class="lead">La cadena más clara para responder C es la <b>Conclusión 7_C75_FD</b> de Morena: fue revisada, reindividualizada por el INE en cumplimiento y finalmente confirmada por Sala Superior.</p>
+          <div class="process" style="grid-template-columns:1fr 24px 1fr 24px 1fr;margin-top:14px">
+            <div class="process-step"><em>Origen</em><h3>INE/CG1928 y 1929/2024</h3><p>Dictamen y resolución de campaña federal.</p></div>
+            <div class="arrow">›</div>
+            <div class="process-step"><em>Revisión</em><h3>SUP-RAP-413/2024</h3><p>Revocación parcial para emitir una nueva determinación.</p></div>
+            <div class="arrow">›</div>
+            <div class="process-step"><em>Cumplimiento</em><h3>INE/CG319/2025</h3><p>El Consejo General reindividualiza la sanción.</p></div>
+          </div>
+          <div class="process" style="grid-template-columns:1fr 34px 1fr;margin-top:10px">
+            <div class="process-step"><em>Nueva apelación</em><h3>SUP-RAP-104/2025</h3><p>Morena controvierte la resolución dictada en cumplimiento.</p></div>
+            <div class="arrow">→</div>
+            <div class="process-step" style="background:var(--green);border-color:var(--green);color:#fff"><em style="color:var(--gold)">Resultado final</em><h3 style="color:#fff">Sanción confirmada</h3><p style="color:#e4efeb">Sala Superior confirma la determinación del INE.</p></div>
+          </div>
+        </div>
+        <aside>
+          <div class="hero-answer" style="padding:15px">
+            <span class="tag">Conclusión 7_C75_FD</span>
+            <h3 style="margin-top:0">Morena</h3>
+            <p>Omisión vinculada con el reporte y comprobación fiscalizada en campaña federal.</p>
+          </div>
+          <div class="money" style="grid-template-columns:1fr">
+            <div class="money-box"><strong>$1,020,800.00</strong><span>Monto involucrado</span></div>
+            <div class="money-box"><strong>$306,167.40</strong><span>Sanción confirmada</span></div>
+          </div>
+          <p class="fine" style="margin-top:9px">Importes en pesos mexicanos. El INE impone la sanción; el TEPJF ejerce control jurisdiccional y, en SUP-RAP-104/2025, confirmó la resolución.</p>
+        </aside>
+      </div>
+      <div class="footer"><span>C · Morena · Conclusión 7_C75_FD</span><span>INE/CG319/2025 → SUP-RAP-104/2025</span></div>
+    </section>
+
+    <section class="page coalitions" aria-label="Partidos y coaliciones">
+      <header class="section-head">
+        <div><p class="eyebrow">Distinción indispensable</p><h2>Partido no es lo mismo que coalición</h2></div>
+        <span class="folio">07 / 09</span>
+      </header>
+      <p class="lead">En campaña, los anexos también registran conclusiones a nombre de coaliciones. Esos datos contestan una pregunta distinta: cuál fue el <i>sujeto fiscalizado</i> con más conclusiones, no cuál fue el partido.</p>
+      <div class="coalition-block">
+        <article class="coalition wine"><strong>377</strong><h3>Fuerza y Corazón por México</h3><p>Coalición integrada por PAN, PRI y PRD. El conteo permanece en la categoría coalición.</p></article>
+        <article class="coalition"><strong>259</strong><h3>Sigamos Haciendo Historia</h3><p>Coalición integrada por Morena, PT y PVEM. No se distribuye automáticamente entre sus integrantes.</p></article>
+      </div>
+      <div class="grid-3">
+        <div class="card"><h3>Si se preguntan partidos</h3><p><b>Morena</b> ocupa el primer lugar con 194 conclusiones directas en precampaña y campaña.</p></div>
+        <div class="card"><h3>Si se mezclan sujetos</h3><p>El orden inicia con Fuerza y Corazón por México (377), Sigamos Haciendo Historia (259) y Morena (194).</p></div>
+        <div class="card"><h3>Por qué no se suman</h3><p>Atribuir las 259 conclusiones de SHH completas a Morena, PT y PVEM triplicaría una misma categoría.</p></div>
+      </div>
+      <div class="note" style="margin-top:14px"><b>Criterio adoptado para A, B y C:</b> comparar únicamente registros directos por partido. La tabla de coaliciones se conserva como control metodológico y evita una lectura engañosa del universo.</div>
+      <div class="footer"><span>Separación de categorías: partidos nacionales y coaliciones</span><span>Campaña federal 2024</span></div>
+    </section>
+
+    <section class="page sources" aria-label="Inventario de fuentes">
+      <header class="section-head">
+        <div><p class="eyebrow">Documentos oficiales</p><h2>Inventario nuclear de evidencia</h2></div>
+        <span class="folio">08 / 09</span>
+      </header>
+      <table class="source-table" aria-label="Fuentes oficiales consultadas">
+        <thead><tr><th>Autoridad</th><th>Clave</th><th>Etapa</th><th>Función en el análisis</th><th>Acceso</th></tr></thead>
+        <tbody>
+          <tr><td>INE</td><td><b>INE/CG212/2024</b></td><td>Precampaña</td><td>Dictamen consolidado y anexos por sujeto obligado.</td><td><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/166305">Repositorio INE ↗</a></td></tr>
+          <tr><td>INE</td><td><b>INE/CG213/2024</b></td><td>Precampaña</td><td>Resolución del Consejo General sobre irregularidades.</td><td><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/166317">Repositorio INE ↗</a></td></tr>
+          <tr><td>TEPJF</td><td><b>SUP-RAP-88/2024</b></td><td>Precampaña</td><td>Revisión jurisdiccional promovida por Morena.</td><td><a href="https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0088-2024-">Sentencia ↗</a></td></tr>
+          <tr><td>INE</td><td><b>INE/CG1928/2024</b></td><td>Campaña</td><td>Dictamen consolidado y anexos del PEF.</td><td><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/175380">Repositorio INE ↗</a></td></tr>
+          <tr><td>INE</td><td><b>INE/CG1929/2024</b></td><td>Campaña</td><td>Resolución del Consejo General sobre irregularidades.</td><td><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/175375">Repositorio INE ↗</a></td></tr>
+          <tr><td>TEPJF</td><td><b>SUP-RAP-413/2024</b></td><td>Campaña</td><td>Revocación parcial y mandato de nueva determinación.</td><td><a href="https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0413-2024-">Sentencia ↗</a></td></tr>
+          <tr><td>INE</td><td><b>INE/CG319/2025</b></td><td>Cumplimiento</td><td>Reindividualización de la Conclusión 7_C75_FD.</td><td><a href="https://repositoriodocumental.ine.mx/xmlui/handle/123456789/181732">Repositorio INE ↗</a></td></tr>
+          <tr><td>TEPJF</td><td><b>SUP-RAP-104/2025</b></td><td>Cumplimiento</td><td>Confirmación de la sanción dictada por el INE.</td><td><a href="https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0104-2025-">Sentencia ↗</a></td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:12px"><b>Sobre los oficios.</b> Los oficios de errores y omisiones y sus respuestas forman parte de los paquetes documentales y anexos que sustentan los dictámenes. El inventario de arriba identifica los instrumentos rectores necesarios para reproducir los conteos y seguir la cadena hasta la sentencia.</div>
+      <div class="footer"><span>Todos los enlaces dirigen a dominios oficiales</span><span>ine.mx · te.gob.mx</span></div>
+    </section>
+
+    <section class="page conclusions" aria-label="Conclusiones y límites">
+      <header class="section-head">
+        <div><p class="eyebrow">Síntesis ejecutiva</p><h2>Respuestas, límites y criterio de interpretación</h2></div>
+        <span class="folio">09 / 09</span>
+      </header>
+      <div class="answer-strip">
+        <article class="answer-small"><b>A · Más observado</b><strong>Morena · 194</strong><p>Mayor número de conclusiones sancionatorias directas entre los siete partidos nacionales.</p></article>
+        <article class="answer-small"><b>B · Llegó al TEPJF</b><strong>Morena</strong><p>SUP-RAP-88/2024 y SUP-RAP-413/2024 conectan las etapas de precampaña y campaña con la revisión jurisdiccional.</p></article>
+        <article class="answer-small"><b>C · Sanción confirmada</b><strong>Morena</strong><p>Conclusión 7_C75_FD: INE/CG319/2025, confirmada en SUP-RAP-104/2025 por $306,167.40.</p></article>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Lo que sí demuestra</h3>
+          <ul>
+            <li>El ranking reproducible de conclusiones directas por partido.</li>
+            <li>La existencia de recursos jurisdiccionales promovidos por el partido líder.</li>
+            <li>Una cadena documental completa hasta sanción confirmada.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Lo que no debe inferirse</h3>
+          <ul>
+            <li>Que 194 sea el número de oficios o hallazgos preliminares.</li>
+            <li>Que todas las conclusiones de Morena hayan llegado al TEPJF.</li>
+            <li>Que “más conclusiones” equivalga a “mayor monto total de multas”.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="fine" style="margin-top:14px"><b>Nota de método.</b> Los valores se obtuvieron de los anexos de los dictámenes consolidados del PEF y se agruparon por sujeto obligado, manteniendo separadas las coaliciones. Los expedientes se validaron en el sistema de sentencias de Sala Superior. Cualquier actualización posterior debe preservar esta regla de conteo para ser comparable.</p>
+      <p class="fine"><b>Denominación institucional.</b> El órgano jurisdiccional es el Tribunal Electoral del Poder Judicial de la Federación (TEPJF). El INE es un organismo constitucional autónomo; en este reporte, ambas instituciones se tratan como fuentes oficiales primarias.</p>
+      <div class="footer"><span>Análisis documental · datos oficiales y trazables</span><span>Fin del reporte</span></div>
+    </section>
   </main>
 </body>
 </html>
