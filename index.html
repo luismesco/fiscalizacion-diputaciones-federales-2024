@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Qué se sancionó en diputaciones federales 2024</title>
+  <style>
+    @page { size: letter landscape; margin: 0; }
+    * { box-sizing: border-box; }
+    html { background: #d8d3cc; }
+    body {
+      margin: 0;
+      color: #211816;
+      font-family: Montserrat, Avenir, Helvetica, Arial, sans-serif;
+    }
+    .report-page {
+      width: 11in;
+      height: 8.5in;
+      margin: 24px auto;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 8px 28px rgba(33, 24, 22, .18);
+      break-after: page;
+      page-break-after: always;
+    }
+    .report-page:last-of-type {
+      break-after: auto;
+      page-break-after: auto;
+    }
+    .report-page img {
+      display: block;
+      width: 11in;
+      height: 8.5in;
+      object-fit: contain;
+    }
+    .download-pdf {
+      position: fixed;
+      z-index: 1000;
+      top: 18px;
+      right: 18px;
+      display: inline-flex;
+      align-items: center;
+      padding: 12px 17px;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 999px;
+      background: #6B1531;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(33, 24, 22, .25);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .02em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .download-pdf:hover { background: #3b0718; }
+    @media print {
+      html, body { background: #fff; }
+      .download-pdf { display: none !important; }
+      .report-page {
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a
+    class="download-pdf"
+    href="reporte_desde_html.pdf"
+    download
+  >Descargar PDF</a>
+
+  <main aria-label="Reporte de fiscalización de diputaciones federales 2024">
+    <section class="report-page"><img src="assets/pagina-01.png" alt="Página 1 de 9: portada"></section>
+    <section class="report-page"><img src="assets/pagina-02.png" alt="Página 2 de 9: índice"></section>
+    <section class="report-page"><img src="assets/pagina-03.png" alt="Página 3 de 9: qué se sancionó"></section>
+    <section class="report-page"><img src="assets/pagina-04.png" alt="Página 4 de 9: mapa de incidencias"></section>
+    <section class="report-page"><img src="assets/pagina-05.png" alt="Página 5 de 9: expedientes consultables"></section>
+    <section class="report-page"><img src="assets/pagina-06.png" alt="Página 6 de 9: expedientes consultables"></section>
+    <section class="report-page"><img src="assets/pagina-07.png" alt="Página 7 de 9: expedientes consultables"></section>
+    <section class="report-page"><img src="assets/pagina-08.png" alt="Página 8 de 9: modelo de trabajo"></section>
+    <section class="report-page"><img src="assets/pagina-09.png" alt="Página 9 de 9: fuentes y método"></section>
+  </main>
+</body>
+</html>
