@@ -1,0 +1,139 @@
+{
+  "method": "Unique ID/Observación blocks in each INE individual opinion",
+  "scope": "Federal ordinary electoral process 2023-2024; precampaign and campaign",
+  "detail": [
+    {
+      "party": "PRI",
+      "stage": "campaña",
+      "observations": 120,
+      "first_id": 1,
+      "last_id": 120,
+      "source_text": "research/derived/dictamenes_txt/campana-cgex202407-22-dp-7-1-a2-02-pri-zip-DIC_PRI_FD.txt"
+    },
+    {
+      "party": "PRD",
+      "stage": "campaña",
+      "observations": 132,
+      "first_id": 1,
+      "last_id": 132,
+      "source_text": "research/derived/dictamenes_txt/campana-cgex202407-22-dp-7-1-a2-03-prd-zip-DIC_PRD.txt"
+    },
+    {
+      "party": "PT",
+      "stage": "campaña",
+      "observations": 175,
+      "first_id": 1,
+      "last_id": 180,
+      "source_text": "research/derived/dictamenes_txt/campana-cgex202407-22-dp-7-1-a2-04-pt-zip-DIC_PT.txt"
+    },
+    {
+      "party": "MC",
+      "stage": "campaña",
+      "observations": 243,
+      "first_id": 1,
+      "last_id": 243,
+      "source_text": "research/derived/dictamenes_txt/campana-cgex202407-22-dp-7-1-a2-06-mc-01-zip-DIC_MC.txt"
+    },
+    {
+      "party": "Morena",
+      "stage": "campaña",
+      "observations": 231,
+      "first_id": 1,
+      "last_id": 232,
+      "source_text": "research/derived/dictamenes_txt/campana-cgex202407-22-dp-7-1-a2-07-morena-01-zip-DIC_MORENA_FD.txt"
+    },
+    {
+      "party": "PAN",
+      "stage": "precampaña",
+      "observations": 59,
+      "first_id": 1,
+      "last_id": 59,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-01-pan-zip-DIC_PAN_FD.txt"
+    },
+    {
+      "party": "PRI",
+      "stage": "precampaña",
+      "observations": 37,
+      "first_id": 1,
+      "last_id": 37,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-02-pri-zip-DIC_PRI_FD.txt"
+    },
+    {
+      "party": "PRD",
+      "stage": "precampaña",
+      "observations": 30,
+      "first_id": 1,
+      "last_id": 30,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-03-prd-zip-DIC_PRD.txt"
+    },
+    {
+      "party": "PT",
+      "stage": "precampaña",
+      "observations": 24,
+      "first_id": 1,
+      "last_id": 26,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-04-pt-zip-PT_FD.txt"
+    },
+    {
+      "party": "PVEM",
+      "stage": "precampaña",
+      "observations": 29,
+      "first_id": 1,
+      "last_id": 29,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-05-pvem-zip-DIC_PVEM.txt"
+    },
+    {
+      "party": "MC",
+      "stage": "precampaña",
+      "observations": 73,
+      "first_id": 1,
+      "last_id": 73,
+      "source_text": "research/derived/dictamenes_txt/precampana_MC_DIC_MC.txt"
+    },
+    {
+      "party": "Morena",
+      "stage": "precampaña",
+      "observations": 57,
+      "first_id": 1,
+      "last_id": 60,
+      "source_text": "research/derived/dictamenes_txt/precampana-cgor202402-27-dp-8-a2-07-morena-zip-DIC_MORENA.txt"
+    }
+  ],
+  "summary": [
+    {
+      "party": "MC",
+      "precampaign_and_campaign_observations": 316,
+      "coverage": "complete"
+    },
+    {
+      "party": "Morena",
+      "precampaign_and_campaign_observations": 288,
+      "coverage": "complete"
+    },
+    {
+      "party": "PT",
+      "precampaign_and_campaign_observations": 199,
+      "coverage": "complete"
+    },
+    {
+      "party": "PRD",
+      "precampaign_and_campaign_observations": 162,
+      "coverage": "complete"
+    },
+    {
+      "party": "PRI",
+      "precampaign_and_campaign_observations": 157,
+      "coverage": "complete"
+    },
+    {
+      "party": "PAN",
+      "precampaign_and_campaign_observations": 59,
+      "coverage": "partial"
+    },
+    {
+      "party": "PVEM",
+      "precampaign_and_campaign_observations": 29,
+      "coverage": "partial"
+    }
+  ]
+}
