@@ -16,7 +16,7 @@ y del TEPJF:
 - **B:** Movimiento Ciudadano, en `SUP-RAP-342/2024` y
   `SUP-RAP-400/2024`.
 - **C:** Movimiento Ciudadano: 30 conclusiones sancionatorias confirmadas y
-  seis revocadas para nueva valoración por la Sala Superior.
+  siete revocadas para efectos por la Sala Superior.
 - **Designaciones:** no se verificó que el conjunto de autoridades
   intervinientes fuera designado por PAN, PRI, PRD o Nueva Alianza. Para la
   cohorte del INE de 2017 existe una acusación de reparto PRI–PAN–PRD registrada

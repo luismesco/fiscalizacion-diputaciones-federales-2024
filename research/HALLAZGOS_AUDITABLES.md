@@ -63,7 +63,7 @@ SM-RAP-168/2024 y SM-RAP-170/2024, acumulados.
 También es **Movimiento Ciudadano**. El 4 de septiembre de 2024, la Sala
 Superior:
 
-- revocó seis conclusiones para que el INE emitiera una nueva determinación;
+- revocó siete conclusiones para efectos de que el INE emitiera una nueva determinación;
 - confirmó treinta conclusiones sancionatorias.
 
 El 8 de octubre de 2024, la Sala Regional Monterrey confirmó la parte de la

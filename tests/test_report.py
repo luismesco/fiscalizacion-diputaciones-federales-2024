@@ -45,6 +45,23 @@ class ReportDataTests(unittest.TestCase):
         self.assertIn("Montserrat-Regular.ttf", html)
         self.assertNotIn("assets/pagina-", html)
 
+    def test_tepjf_outcome_uses_audited_thirty_seven_conclusions(self) -> None:
+        html = HTML_PATH.read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        findings = (
+            ROOT / "research" / "HALLAZGOS_AUDITABLES.md"
+        ).read_text(encoding="utf-8")
+
+        for text in (html, readme, findings):
+            self.assertIn("30", text)
+            self.assertRegex(text, r"\b7\b|siete")
+            self.assertNotRegex(
+                text,
+                r"revoc[óa]\s+seis|seis\s+revocadas|"
+                r"<strong>6</strong><span>Conclusiones revocadas",
+            )
+        self.assertIn("revocadas para efectos", html)
+
     def test_pdf_is_letter_landscape_with_selectable_text(self) -> None:
         document = fitz.open(PDF_PATH)
         self.assertEqual(document.page_count, 12)
