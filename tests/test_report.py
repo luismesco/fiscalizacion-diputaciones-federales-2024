@@ -18,8 +18,11 @@ class ReportDataTests(unittest.TestCase):
         sources = data["fuentes"]
 
         self.assertEqual(len(parties), 7)
-        self.assertEqual(parties["Morena"]["total"], 194)
-        self.assertEqual(parties["Movimiento Ciudadano"]["total"], 121)
+        self.assertEqual(parties["Movimiento Ciudadano"]["total"], 316)
+        self.assertEqual(parties["Morena"]["total"], 288)
+        self.assertEqual(parties["PAN"]["cobertura"], "parcial")
+        self.assertIsNone(parties["PAN"]["campana"])
+        self.assertIn("no se verificó", data["designaciones"]["conclusion"].lower())
         self.assertGreaterEqual(
             sum(1 for item in sources if item["autoridad"] == "INE"),
             4,
@@ -29,26 +32,36 @@ class ReportDataTests(unittest.TestCase):
             3,
         )
 
-    def test_html_contains_new_nine_page_analysis(self) -> None:
+    def test_html_contains_twelve_page_analysis_and_montserrat(self) -> None:
         html = HTML_PATH.read_text(encoding="utf-8")
 
-        self.assertEqual(html.count('class="page '), 9)
-        self.assertIn("Morena", html)
-        self.assertIn("194", html)
-        self.assertIn("SUP-RAP-413/2024", html)
-        self.assertIn("SUP-RAP-104/2025", html)
-        self.assertIn("Conclusión 7_C75_FD", html)
+        self.assertEqual(html.count('class="page '), 12)
+        self.assertIn("Movimiento Ciudadano", html)
+        self.assertIn("316", html)
+        self.assertIn("SUP-RAP-342/2024", html)
+        self.assertIn("SM-RAP-168/2024", html)
+        self.assertIn("Insaculación", html)
+        self.assertIn("cédula secreta", html)
+        self.assertIn("Montserrat-Regular.ttf", html)
         self.assertNotIn("assets/pagina-", html)
 
     def test_pdf_is_letter_landscape_with_selectable_text(self) -> None:
         document = fitz.open(PDF_PATH)
-        self.assertEqual(document.page_count, 9)
+        self.assertEqual(document.page_count, 12)
         self.assertTrue(
             all(page.rect == fitz.Rect(0, 0, 792, 612) for page in document)
         )
         report_text = "".join(page.get_text() for page in document)
-        self.assertIn("Morena", report_text)
-        self.assertIn("SUP-RAP-104/2025", report_text)
+        embedded_fonts = {
+            font[3]
+            for page in document
+            for font in page.get_fonts(full=True)
+        }
+        self.assertIn("Movimiento Ciudadano", report_text)
+        self.assertIn("SUP-RAP-342/2024", report_text)
+        self.assertIn("insaculación", report_text.lower())
+        self.assertIn("cédula secreta", report_text.lower())
+        self.assertTrue(any("Montserrat" in name for name in embedded_fonts))
 
 
 if __name__ == "__main__":

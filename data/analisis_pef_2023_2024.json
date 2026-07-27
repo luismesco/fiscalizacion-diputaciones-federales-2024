@@ -2,73 +2,104 @@
   "titulo": "Observaciones de fiscalización del PEF 2023–2024",
   "fecha_corte": "2026-07-26",
   "universo": "Precampaña y campaña federales para Presidencia, senadurías y diputaciones",
-  "unidad_principal": "Conclusión sancionatoria directa por partido",
+  "unidad_principal": "Bloque único identificado por ID + Observación en el dictamen individual",
   "partidos": {
-    "Morena": {
-      "precampana": 26,
-      "campana": 168,
-      "total": 194
-    },
     "Movimiento Ciudadano": {
-      "precampana": 21,
-      "campana": 100,
-      "total": 121
+      "precampana": 73,
+      "campana": 243,
+      "total": 316,
+      "cobertura": "completa"
     },
-    "PAN": {
-      "precampana": 25,
-      "campana": 91,
-      "total": 116
+    "Morena": {
+      "precampana": 57,
+      "campana": 231,
+      "total": 288,
+      "cobertura": "completa"
     },
     "PT": {
-      "precampana": 7,
-      "campana": 99,
-      "total": 106
+      "precampana": 24,
+      "campana": 175,
+      "total": 199,
+      "cobertura": "completa"
     },
     "PRD": {
-      "precampana": 14,
-      "campana": 83,
-      "total": 97
+      "precampana": 30,
+      "campana": 132,
+      "total": 162,
+      "cobertura": "completa"
     },
     "PRI": {
-      "precampana": 26,
-      "campana": 65,
-      "total": 91
+      "precampana": 37,
+      "campana": 120,
+      "total": 157,
+      "cobertura": "completa"
+    },
+    "PAN": {
+      "precampana": 59,
+      "campana": null,
+      "total": null,
+      "cobertura": "parcial"
     },
     "PVEM": {
-      "precampana": 16,
-      "campana": 65,
-      "total": 81
-    }
-  },
-  "coaliciones": {
-    "Fuerza y Corazón por México": {
-      "campana": 377
-    },
-    "Sigamos Haciendo Historia": {
-      "campana": 259
+      "precampana": 29,
+      "campana": null,
+      "total": null,
+      "cobertura": "parcial"
     }
   },
   "respuestas": {
     "a": {
-      "partido": "Morena",
-      "total": 194,
-      "criterio": "Mayor número de conclusiones sancionatorias directas en precampaña y campaña federal"
+      "partido": "Movimiento Ciudadano",
+      "total": 316,
+      "criterio": "Mayor número de bloques únicos de observación entre partidos con cobertura completa"
     },
     "b": {
-      "partido": "Morena",
+      "partido": "Movimiento Ciudadano",
       "expedientes": [
-        "SUP-RAP-88/2024",
-        "SUP-RAP-413/2024"
+        "SUP-RAP-342/2024",
+        "SUP-RAP-400/2024"
       ]
     },
     "c": {
-      "partido": "Morena",
-      "conclusion": "7_C75_FD",
-      "resolucion_cumplimiento": "INE/CG319/2025",
-      "expediente_confirmatorio": "SUP-RAP-104/2025",
-      "monto_involucrado": 1020800.0,
-      "sancion_confirmada": 306167.4
+      "partido": "Movimiento Ciudadano",
+      "expedientes_sala_superior": [
+        "SUP-RAP-342/2024",
+        "SUP-RAP-400/2024"
+      ],
+      "expedientes_sala_monterrey": [
+        "SM-RAP-168/2024",
+        "SM-RAP-170/2024"
+      ],
+      "conclusiones_confirmadas_sala_superior": 30,
+      "conclusiones_revocadas_sala_superior": 6,
+      "ejemplo_conclusion": "6_C56_FD",
+      "ejemplo_monto": 10998406.91
     }
+  },
+  "designaciones": {
+    "conclusion": "No se verificó que el conjunto de autoridades intervinientes fuera designado por PAN, PRI, PRD o Nueva Alianza.",
+    "ine_2017": {
+      "personas": [
+        "Dania Paola Ravel Cuevas",
+        "Jaime Rivera Velázquez",
+        "Beatriz Claudia Zavala Pérez"
+      ],
+      "mecanismo": "Elección por la Cámara de Diputados, 336-32-5",
+      "evidencia_partidista": "Acusación en tribuna que atribuyó las propuestas a PRI, PAN y PRD; no afiliación probada"
+    },
+    "ine_2020": {
+      "mecanismo": "Elección por la Cámara de Diputados, 399-5-5",
+      "evidencia_partidista": "Acuerdo plural; sin atribución individual oficial"
+    },
+    "ine_2023": {
+      "mecanismo": "Insaculación en la Cámara de Diputados",
+      "evidencia_partidista": "Sin selección individual por partido"
+    },
+    "tepjf_2016": {
+      "mecanismo": "Senado elige de ternas de la SCJN mediante cédula secreta",
+      "evidencia_partidista": "No permite atribución nominal partido por partido"
+    },
+    "clasificacion_ideologica": "PAN, PRI, PRD y Nueva Alianza se tratan como grupo solicitado, no como un bloque uniforme de derecha"
   },
   "fuentes": [
     {
@@ -101,31 +132,52 @@
     },
     {
       "autoridad": "TEPJF",
-      "clave": "SUP-RAP-88/2024",
-      "etapa": "Precampaña",
-      "tipo": "Sentencia",
-      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0088-2024-"
-    },
-    {
-      "autoridad": "TEPJF",
-      "clave": "SUP-RAP-413/2024",
+      "clave": "SUP-RAP-342/2024",
       "etapa": "Campaña",
       "tipo": "Sentencia",
-      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0413-2024-"
-    },
-    {
-      "autoridad": "INE",
-      "clave": "INE/CG319/2025",
-      "etapa": "Cumplimiento",
-      "tipo": "Resolución",
-      "url": "https://repositoriodocumental.ine.mx/xmlui/handle/123456789/181732"
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0342-2024"
     },
     {
       "autoridad": "TEPJF",
-      "clave": "SUP-RAP-104/2025",
-      "etapa": "Cumplimiento",
+      "clave": "SUP-RAP-400/2024",
+      "etapa": "Campaña",
+      "tipo": "Recurso acumulado",
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0342-2024-Acuerdo1"
+    },
+    {
+      "autoridad": "TEPJF",
+      "clave": "SM-RAP-168/2024",
+      "etapa": "Campaña",
       "tipo": "Sentencia",
-      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SUP-RAP-0104-2025-"
+      "url": "https://www.te.gob.mx/sentenciasHTML/convertir/expediente/SM-RAP-0168-2024-"
+    },
+    {
+      "autoridad": "DOF",
+      "clave": "Reforma constitucional 10-02-2014",
+      "etapa": "Designaciones",
+      "tipo": "Decreto",
+      "url": "https://www.dof.gob.mx/abrirPDF.php?anio=2014&archivo=10022014-MAT.pdf&repo=repositorio%2F"
+    },
+    {
+      "autoridad": "Cámara de Diputados",
+      "clave": "Sesión 30-03-2017",
+      "etapa": "Designaciones",
+      "tipo": "Versión estenográfica",
+      "url": "https://cronica.diputados.gob.mx/Estenografia/LXIII/2017/mar/20170330.html"
+    },
+    {
+      "autoridad": "Cámara de Diputados",
+      "clave": "Decreto 04-04-2023",
+      "etapa": "Designaciones",
+      "tipo": "Insaculación",
+      "url": "https://www.diputados.gob.mx/LeyesBiblio/marjur/marco/Dip_decreto_consejeros_INE_04abr23.pdf"
+    },
+    {
+      "autoridad": "SCJN/Senado",
+      "clave": "Designación Sala Superior 2016",
+      "etapa": "Designaciones",
+      "tipo": "Ternas y constancia",
+      "url": "https://infosen.senado.gob.mx/sgsp/gaceta/63/2/2016-11-04-1/assets/documentos/Acuerdo_MD_Impugnacion_Materia_Electoral_04112016.pdf"
     }
   ]
 }

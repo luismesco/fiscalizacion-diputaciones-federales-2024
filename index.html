@@ -6,6 +6,34 @@
   <meta name="description" content="Análisis documental de las observaciones de fiscalización del Proceso Electoral Federal 2023–2024 con fuentes oficiales del INE y del TEPJF.">
   <title>Observaciones de fiscalización del PEF 2023–2024</title>
   <style>
+    @font-face {
+      font-family: "Montserrat";
+      src: url("assets/fonts/Montserrat-Regular.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Montserrat";
+      src: url("assets/fonts/Montserrat-Bold.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Montserrat";
+      src: url("assets/fonts/Montserrat-Black.ttf") format("truetype");
+      font-style: normal;
+      font-weight: 900;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Montserrat";
+      src: url("assets/fonts/Montserrat-Italic.ttf") format("truetype");
+      font-style: italic;
+      font-weight: 400;
+      font-display: swap;
+    }
     @page { size: letter landscape; margin: 0; }
     :root {
       --wine: #6b1531;
@@ -25,7 +53,7 @@
     body {
       margin: 0;
       color: var(--ink);
-      font-family: Montserrat, Avenir, "Helvetica Neue", Arial, sans-serif;
+      font-family: "Montserrat", Arial, sans-serif;
       font-variant-numeric: tabular-nums;
     }
     a { color: inherit; }
@@ -113,7 +141,7 @@
       max-width: 6in;
       margin: 0;
       color: var(--wine);
-      font-family: Avenir, Montserrat, "Helvetica Neue", Arial, sans-serif;
+      font-family: "Montserrat", Arial, sans-serif;
       font-size: 43px;
       font-weight: 900;
       letter-spacing: -.045em;
@@ -123,7 +151,7 @@
       max-width: 5.25in;
       margin: 18px 0 0;
       color: #3d322e;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Montserrat", Arial, sans-serif;
       font-size: 16px;
       line-height: 1.38;
     }
@@ -180,7 +208,7 @@
     .lead {
       margin: 0;
       color: #3d322e;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: "Montserrat", Arial, sans-serif;
       font-size: 15px;
       line-height: 1.38;
     }
@@ -355,6 +383,72 @@
     .answer-small b { display: block; color: var(--gold); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
     .answer-small strong { display: block; margin: 7px 0; font-size: 22px; line-height: 1; }
     .answer-small p { margin: 0; font-size: 8.7px; line-height: 1.4; }
+    .legal-timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 14px 0;
+    }
+    .legal-step {
+      min-height: 1.25in;
+      padding: 13px;
+      border-top: 5px solid var(--gold);
+      background: #f5efe3;
+    }
+    .legal-step b {
+      display: block;
+      color: var(--wine);
+      font-size: 17px;
+      line-height: 1;
+    }
+    .legal-step h3 {
+      margin: 7px 0 5px;
+      color: var(--wine);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+    .legal-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 8.6px;
+      line-height: 1.38;
+    }
+    .evidence-chip {
+      display: inline-block;
+      margin-bottom: 5px;
+      padding: 3px 6px;
+      border-radius: 999px;
+      background: var(--soft-green);
+      color: var(--green);
+      font-size: 7.5px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .evidence-chip.warning {
+      background: #f3e4bf;
+      color: #775512;
+    }
+    .evidence-chip.no {
+      background: var(--soft-wine);
+      color: var(--wine);
+    }
+    .appointment-table td { padding-top: 5px; padding-bottom: 5px; font-size: 8.2px; }
+    .appointment-table td:last-child { font-weight: 750; }
+    .verdict {
+      padding: 15px 17px;
+      border: 1px solid var(--wine);
+      background: var(--wine);
+      color: #fff;
+    }
+    .verdict strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--gold);
+      font-size: 22px;
+      line-height: 1.05;
+    }
+    .verdict p { margin: 0; font-size: 9.5px; line-height: 1.45; }
     .footer {
       position: absolute;
       left: .48in;
@@ -381,6 +475,7 @@
         overflow-x: clip;
       }
       .download-pdf {
+        position: absolute;
         top: max(12px, env(safe-area-inset-top));
         right: max(12px, env(safe-area-inset-right));
         max-width: calc(100vw - 24px);
@@ -451,7 +546,8 @@
       .grid-2,
       .grid-3,
       .coalition-block,
-      .answer-strip {
+      .answer-strip,
+      .legal-timeline {
         grid-template-columns: minmax(0, 1fr) !important;
       }
       .grid-2,
@@ -507,6 +603,50 @@
       .source-table th:nth-child(5),
       .source-table td:nth-child(5) { width: 21%; }
       .source-table td { font-size: 10px; }
+      .appointment-table,
+      .appointment-table tbody {
+        display: block;
+      }
+      .appointment-table thead {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+      .appointment-table tr {
+        display: block;
+        margin-bottom: 12px;
+        padding: 7px 11px;
+        border: 1px solid var(--line);
+        background: rgba(255,255,255,.7);
+      }
+      .appointment-table td {
+        display: grid;
+        grid-template-columns: minmax(92px, 31%) minmax(0, 1fr);
+        gap: 10px;
+        width: 100%;
+        padding: 8px 0;
+        border-bottom: 1px solid #e8dfd0;
+        font-size: 12px;
+        line-height: 1.42;
+      }
+      .appointment-table td:last-child { border-bottom: 0; }
+      .appointment-table td::before {
+        color: var(--wine);
+        font-size: 9px;
+        font-weight: 900;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+      .appointments-ine .appointment-table td:nth-child(1)::before { content: "Cohorte"; }
+      .appointments-ine .appointment-table td:nth-child(2)::before { content: "Personas"; }
+      .appointments-ine .appointment-table td:nth-child(3)::before { content: "Mecanismo"; }
+      .appointments-ine .appointment-table td:nth-child(4)::before { content: "Evidencia"; }
+      .appointments-ine .appointment-table td:nth-child(5)::before { content: "Resultado"; }
+      .appointments-tepjf .appointment-table td:nth-child(1)::before { content: "Proposición"; }
+      .appointments-tepjf .appointment-table td:nth-child(2)::before { content: "Estado"; }
+      .appointments-tepjf .appointment-table td:nth-child(3)::before { content: "Fundamento"; }
       .process {
         grid-template-columns: minmax(0, 1fr) !important;
       }
@@ -519,7 +659,8 @@
       }
       .money-box strong { font-size: 32px; }
       .coalition,
-      .answer-small {
+      .answer-small,
+      .legal-step {
         min-height: 0;
       }
       .hero-answer strong {
@@ -569,7 +710,7 @@
     <section class="page methodology" aria-label="Alcance y método">
       <header class="section-head">
         <div><p class="eyebrow">Cómo leer el resultado</p><h2>Alcance, unidad de análisis y ruta documental</h2></div>
-        <span class="folio">02 / 09</span>
+        <span class="folio">02 / 12</span>
       </header>
       <div class="grid-2">
         <div>
@@ -600,7 +741,7 @@
     <section class="page inventory" aria-label="Inventario documental">
       <header class="section-head">
         <div><p class="eyebrow">Cobertura del archivo</p><h2>109 paquetes oficiales y más de 40 mil entradas</h2></div>
-        <span class="folio">03 / 09</span>
+        <span class="folio">03 / 12</span>
       </header>
       <div class="grid-3">
         <div class="card"><span class="number">46</span><h3>Precampaña</h3><p>Paquetes ZIP asociados con INE/CG212/2024.</p></div>
@@ -625,7 +766,7 @@
     <section class="page answer-a" aria-label="Respuesta A">
       <header class="section-head">
         <div><p class="eyebrow">Respuesta A</p><h2>¿Cuál fue el partido más observado?</h2></div>
-        <span class="folio">04 / 09</span>
+        <span class="folio">04 / 12</span>
       </header>
       <div class="grid-2">
         <div>
@@ -660,7 +801,7 @@
     <section class="page answer-b" aria-label="Respuesta B">
       <header class="section-head">
         <div><p class="eyebrow">Respuesta B</p><h2>El partido más observado que llegó al TEPJF</h2></div>
-        <span class="folio">05 / 09</span>
+        <span class="folio">05 / 12</span>
       </header>
       <p class="lead">Movimiento Ciudadano controvirtió el dictamen INE/CG1928/2024, la resolución INE/CG1929/2024 y su engrose. La controversia se acumuló y después se escindió conforme al tipo de elección.</p>
       <div class="grid-2" style="margin-top:15px">
@@ -693,7 +834,7 @@
     <section class="page answer-c" aria-label="Respuesta C">
       <header class="section-head">
         <div><p class="eyebrow">Respuesta C · efectos</p><h2>MC conservó sanciones después de la revisión</h2></div>
-        <span class="folio">06 / 09</span>
+        <span class="folio">06 / 12</span>
       </header>
       <div class="grid-2">
         <div>
@@ -729,7 +870,7 @@
     <section class="page decisions" aria-label="Mapa jurisdiccional">
       <header class="section-head">
         <div><p class="eyebrow">Mapa del litigio</p><h2>Una impugnación, dos órganos resolutores</h2></div>
-        <span class="folio">07 / 09</span>
+        <span class="folio">07 / 12</span>
       </header>
       <p class="lead">La Sala Superior acumuló SUP-RAP-400/2024 a SUP-RAP-342/2024 y escindió los agravios de acuerdo con la elección y la competencia territorial.</p>
       <div class="coalition-block">
@@ -748,7 +889,7 @@
     <section class="page sources" aria-label="Inventario de fuentes">
       <header class="section-head">
         <div><p class="eyebrow">Documentos oficiales</p><h2>Fuentes rectoras y trazabilidad</h2></div>
-        <span class="folio">08 / 09</span>
+        <span class="folio">08 / 12</span>
       </header>
       <table class="source-table" aria-label="Fuentes oficiales consultadas">
         <thead><tr><th>Autoridad</th><th>Clave</th><th>Etapa</th><th>Función en el análisis</th><th>Acceso</th></tr></thead>
@@ -767,10 +908,103 @@
       <div class="footer"><span>Todos los enlaces dirigen a dominios oficiales</span><span>ine.mx · te.gob.mx</span></div>
     </section>
 
+    <section class="page legal-framework" aria-label="Marco jurídico de las designaciones">
+      <header class="section-head">
+        <div><p class="eyebrow">Control de la hipótesis partidista</p><h2>Quién designa legalmente desde 2014</h2></div>
+        <span class="folio">09 / 12</span>
+      </header>
+      <p class="lead">La ley no autoriza a un partido a nombrar por sí solo a una consejería del INE ni a una magistratura del TEPJF. La designación formal corresponde a órganos del Estado y exige procedimientos específicos.</p>
+      <div class="legal-timeline">
+        <article class="legal-step"><b>2014</b><h3>Reforma constitucional</h3><p>El artículo 41 establece convocatoria, comité técnico y elección de consejerías del INE por dos terceras partes de la Cámara de Diputados; prevé insaculación si no hay acuerdo.</p></article>
+        <article class="legal-step"><b>2016–2019</b><h3>Magistraturas</h3><p>La SCJN integra ternas y el Senado elige por dos terceras partes conforme al artículo 99 constitucional y al artículo 198 de la LOPJF aplicable.</p></article>
+        <article class="legal-step"><b>2023</b><h3>Insaculación INE</h3><p>Al no alcanzarse la elección dentro del plazo, cuatro consejerías se definieron mediante sorteo reglado en la Cámara de Diputados.</p></article>
+        <article class="legal-step"><b>2024</b><h3>Reforma judicial</h3><p>La reforma del 15 de septiembre modificó el sistema para elecciones judiciales futuras; no reescribe el origen de quienes resolvieron estos expedientes.</p></article>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Distinción probatoria</h3>
+          <p><b>Órgano formal</b> no es lo mismo que <b>respaldo parlamentario</b>. Y respaldo parlamentario no equivale a militancia, subordinación, conflicto de interés ni afinidad ideológica de la persona designada.</p>
+        </div>
+        <div class="card">
+          <h3>Normas rectoras</h3>
+          <p><a href="https://www.dof.gob.mx/abrirPDF.php?anio=2014&amp;archivo=10022014-MAT.pdf&amp;repo=repositorio%2F"><b>Reforma constitucional 2014 ↗</b></a>; <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LGIPE.pdf"><b>LGIPE ↗</b></a>; <a href="https://www.diputados.gob.mx/LeyesBiblio/abro/lopjf_1995/LOPJF_abro.pdf"><b>LOPJF aplicable ↗</b></a>. Se revisaron también decretos y versiones estenográficas.</p>
+        </div>
+      </div>
+      <div class="note" style="margin-top:12px"><b>Criterio:</b> sólo se atribuye un partido cuando existe una fuente oficial explícita. Las declaraciones de tribuna se registran como acusaciones políticas, no como prueba de afiliación.</div>
+      <div class="footer"><span>Marco jurídico 2014–2024</span><span>Constitución · LGIPE · LOPJF · DOF</span></div>
+    </section>
+
+    <section class="page appointments-ine" aria-label="Designaciones de las consejerías del INE">
+      <header class="section-head">
+        <div><p class="eyebrow">Matriz de nombramientos · INE</p><h2>Tres cohortes, tres niveles de evidencia</h2></div>
+        <span class="folio">10 / 12</span>
+      </header>
+      <table class="appointment-table" aria-label="Designación de consejerías del INE que intervinieron en 2024">
+        <thead><tr><th>Cohorte</th><th>Personas relevantes</th><th>Mecanismo oficial</th><th>Evidencia partidista</th><th>Resultado verificable</th></tr></thead>
+        <tbody>
+          <tr><td><b>2017</b></td><td>Ravel, Rivera y Zavala</td><td>Cámara: 336 a favor, 32 en contra, 5 abstenciones</td><td><div><span class="evidence-chip warning">Acusación en tribuna</span><br>Morena atribuyó las propuestas a PRI, PAN y PRD</div></td><td>El decreto no asigna partido ni prueba afiliación.</td></tr>
+          <tr><td><b>2020</b></td><td>De la Cruz, Humphrey, Faz y Espadas</td><td>Cámara: 399 a favor, 5 en contra, 5 abstenciones</td><td><div><span class="evidence-chip">Acuerdo plural</span><br>La fuente oficial describe consenso entre grupos</div></td><td>No se acredita autoría individual de un partido.</td></tr>
+          <tr><td><b>2023</b></td><td>Taddei, López Vences, Montaño y Castillo</td><td>Insaculación en la Cámara de Diputados</td><td><div><span class="evidence-chip no">Sin selección individual</span><br>El resultado se definió por sorteo reglado</div></td><td>No es correcto afirmar que un partido escogió al ganador.</td></tr>
+          <tr><td><b>UTF 2023</b></td><td>Isaac David Ramírez Bernal</td><td>Encargaduría de despacho administrativa</td><td><div><span class="evidence-chip no">Sin atribución oficial</span></div></td><td>No es una designación legislativa.</td></tr>
+        </tbody>
+      </table>
+      <div class="grid-2" style="margin-top:13px">
+        <div class="verdict">
+          <strong>No se verifica la hipótesis general.</strong>
+          <p>No hay base oficial para afirmar que todas las autoridades del INE intervinientes fueron “designadas por partidos de derecha”. Existe una acusación documentada y acotada a la cohorte de 2017.</p>
+        </div>
+        <div class="card">
+          <h3>La etiqueta ideológica requiere corrección</h3>
+          <p>En sus documentos oficiales, el PRD se definió de izquierda; Nueva Alianza, liberal; el PRI, nacionalista, democrático y popular; y el PAN, desde el humanismo político. Aquí se analizan PAN, PRI, PRD y Nueva Alianza como <b>grupo solicitado</b>, no como bloque ideológico demostrado.</p>
+        </div>
+      </div>
+      <div class="note" style="margin-top:11px"><b>Dato clave de 2017:</b> la intervención de Rocío Nahle consta en la <a href="https://cronica.diputados.gob.mx/Estenografia/LXIII/2017/mar/20170330.html"><b>versión estenográfica oficial ↗</b></a>. Su dicho es evidencia de una denuncia de cuotas; no sustituye el decreto ni acredita una relación jurídica partido–consejería. La <a href="https://www.diputados.gob.mx/LeyesBiblio/marjur/marco/Dip_decreto_consejeros_INE_04abr23.pdf"><b>insaculación de 2023 consta en decreto ↗</b></a>.</div>
+      <div class="footer"><span>INE · cohortes 2017, 2020 y 2023</span><span>Decreto, votación y debate diferenciados</span></div>
+    </section>
+
+    <section class="page appointments-tepjf" aria-label="Designaciones y relaciones en el TEPJF">
+      <header class="section-head">
+        <div><p class="eyebrow">Designaciones · TEPJF</p><h2 style="font-size:25px">El voto secreto impide una atribución partidista nominal</h2></div>
+        <span class="folio">11 / 12</span>
+      </header>
+      <div class="grid-2">
+        <div>
+          <div class="card">
+            <span class="evidence-chip no">Sala Superior · 2016</span>
+            <h3>SCJN propone; Senado elige</h3>
+            <p>Felipe de la Mata, Felipe Fuentes, Janine Otálora, Reyes Rodríguez y Mónica Soto fueron electos de <a href="https://www.internet2.scjn.gob.mx/red2/comunicados/noticia.asp?id=4376"><b>ternas de la SCJN ↗</b></a>. La votación fue por <a href="https://infosen.senado.gob.mx/sgsp/gaceta/63/2/2016-11-04-1/assets/documentos/Acuerdo_MD_Impugnacion_Materia_Electoral_04112016.pdf"><b>cédula secreta ↗</b></a>; la constancia oficial no permite asignar cada sufragio a un grupo.</p>
+          </div>
+          <div class="card" style="margin-top:10px">
+            <span class="evidence-chip">Sala Monterrey</span>
+            <h3>Dos designaciones y una suplencia</h3>
+            <p>Claudia Valle fue elegida por el Senado en 2016 y Ernesto Camacho en 2019. Elena Ponce actuó como magistrada en funciones por la regla legal de suplencia; ningún partido la nombró para resolver ese expediente.</p>
+          </div>
+        </div>
+        <div>
+          <div class="verdict">
+            <strong>No atribuible partido por partido.</strong>
+            <p>La mayoría calificada demuestra que hubo respaldo senatorial suficiente. No demuestra, por sí sola, qué partido “designó” a cada magistratura, y la modalidad secreta impide reconstruir oficialmente el voto nominal.</p>
+          </div>
+          <div class="note" style="margin-top:10px"><b>Relación laboral comprobada:</b> la declaración de Beatriz Claudia Zavala registra que trabajó como secretaria instructora en la ponencia de Janine Otálora del 16 de noviembre de 2016 al 4 de abril de 2017. En 2024 ambas intervinieron en etapas distintas del caso.</div>
+          <div class="note" style="margin-top:8px"><b>Límite jurídico:</b> compartir previamente área o dependencia es contexto verificable; por sí solo no prueba impedimento, interés personal, parcialidad, acuerdo ni conflicto de interés.</div>
+        </div>
+      </div>
+      <table class="appointment-table" style="margin-top:13px" aria-label="Resumen del nivel de evidencia">
+        <thead><tr><th>Proposición</th><th>Estado</th><th>Fundamento</th></tr></thead>
+        <tbody>
+          <tr><td>El Senado eligió a las magistraturas de 2016</td><td><b>Comprobado</b></td><td>Constancia oficial y procedimiento constitucional.</td></tr>
+          <tr><td>Un partido específico nombró a cada magistratura</td><td><b>No verificable</b></td><td>Elección colegiada y voto por cédula secreta.</td></tr>
+          <tr><td>Zavala y Otálora compartieron ponencia</td><td><b>Comprobado</b></td><td>Declaración patrimonial pública de Zavala.</td></tr>
+          <tr><td>La coincidencia produjo la decisión de 2024</td><td><b>No demostrado</b></td><td>No se localizó evidencia oficial de causalidad o interés.</td></tr>
+        </tbody>
+      </table>
+      <div class="footer"><span>TEPJF · designación, voto y relaciones laborales</span><span>Evidencia ≠ inferencia</span></div>
+    </section>
+
     <section class="page conclusions" aria-label="Conclusiones y límites">
       <header class="section-head">
         <div><p class="eyebrow">Síntesis ejecutiva</p><h2>Respuestas, límites y criterio de interpretación</h2></div>
-        <span class="folio">09 / 09</span>
+        <span class="folio">12 / 12</span>
       </header>
       <div class="answer-strip">
         <article class="answer-small"><b>A · Más observado</b><strong>MC · 316</strong><p>73 observaciones de precampaña y 243 de campaña en dictámenes individuales recuperados.</p></article>
@@ -797,6 +1031,7 @@
       </div>
       <p class="fine" style="margin-top:14px"><b>Nota de método.</b> Cada cifra procede del texto de los dictámenes individuales y se reproduce localizando encabezados ID + Observación. Las coaliciones no se suman a sus partidos integrantes y las etapas parciales no se presentan como cero.</p>
       <p class="fine"><b>Denominación institucional.</b> El órgano jurisdiccional es el Tribunal Electoral del Poder Judicial de la Federación (TEPJF). El INE es un organismo constitucional autónomo; en este reporte, ambas instituciones se tratan como fuentes oficiales primarias.</p>
+      <p class="fine"><b>Designaciones.</b> La revisión desde 2014 no acredita que el conjunto de autoridades intervinientes fuera designado por el grupo partidista solicitado. Sí documenta una acusación de reparto PRI–PAN–PRD en 2017, insaculación en 2023 y voto senatorial secreto para Sala Superior en 2016.</p>
       <div class="footer"><span>Análisis documental · datos oficiales y trazables</span><span>Fin del reporte</span></div>
     </section>
   </main>
